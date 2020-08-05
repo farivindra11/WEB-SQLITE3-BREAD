@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <h1>BREAD(Browse, Read, Edit, Add, Delete)</h1>
+            <h3>Filters</h3>
+            <form action="/" method="GET">
+                <div class="form-group row">
+                    <label for="id" class="col-sm-2 col-form-label">
+                        <input class="form-check-input" type="checkbox" name="checkId" value="true" id="id">
+                        ID
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="number" name="id" class="form-control" id="id" placeholder="ID">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="String" class="col-sm-2 col-form-label">
+                        <input class="form-check-input" type="checkbox" name="checkString" value="true" id="String">
+                        String
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="string" class="form-control" id="String" placeholder="String">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Integer" class="col-sm-2 col-form-label">
+                        <input class="form-check-input" type="checkbox" name="checkInteger" value="true" id="Integer">
+                        Integer
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="number" name="integer" class="form-control" id="integer" placeholder="Integer">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Float" class="col-sm-2 col-form-label">
+                        <input class="form-check-input" type="checkbox" name="checkFloat" value="" id="Float">
+                        Float
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="float" class="form-control" id="Float" placeholder="Float">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Date" class="col-sm-2 col-form-label">
+                        <input class="form-check-input" type="checkbox" name="checkDate" value="" id="Date">
+                        Date
+                    </label>
+                    <div class="col-sm-2">
+                        <input type="date" name="startDate" class="form-control" id="Date" placeholder="start date">
+                        <h6>to</h6>
+                        <input type="date" name="endDate" class="form-control" id="Date" placeholder="end date">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Boolean" class="col-sm-2 col-form-label">
+                        <input class="form-check-input" type="checkbox" value="" id="Boolean">Boolean</label>
+                    <div class="col-sm-10">
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option selected disabled>Choose the boolean...</option>
+                            <option value="1">True</option>
+                            <option value="2">False</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">String</th>
+                        <th scope="col">Integer</th>
+                        <th scope="col">Float</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Boolean</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(item => { %>
+                    <tr>
+                        <!-- <th scope="row">1</th> -->
+                        <td><%= item.id %></td>
+                        <td><%= item.string %></td>
+                        <td><%= item.integer %></td>
+                        <td><%= item.float %></td>
+                        <td><%= item.date %></td>
+                        <td><%= item.boolean %></td>
+                        <td>
+                            <a href="edit/<%= item.id%>" class="btn btn-success">Edit</a>
+                            <a href="delete/<%= item.id%>" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="/?page=<%= parseInt(page) - 1%>">Previous</a></li>
+                <%for(let i = 1; i<= pages; i++){%>
+                <li class="page-item"><a class="page-link" href="/?page=<%= i %>"><%= i%></a></li>
+                <%}%>
+                  <li class="page-item"><a class="page-link" href="/?page=<%= parseInt(page) + 1%>">Next</a></li>
+                </ul>
+
+            <div class="add">
+            <a href="add" class="btn btn-primary">Add</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

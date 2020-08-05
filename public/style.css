@@ -1,0 +1,42 @@
+body {
+    font-family: sans-serif;
+    color: #404E67;
+    background: #F5F7FA;
+}
+
+/* list */
+.container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+h6 {
+    padding-top: 5px;
+    color: rgb(82, 84, 85);
+}
+
+
+/* add */
+.table-wrapper {
+    width: 100%;
+    margin:auto;
+    background: #fff;
+    padding: 50px;	
+    box-shadow: 0 1px 1px 1px rgba(0,0,0,0.3);
+    border-radius: 20px;
+}
+.container.add {
+    /* margin-top: 5px; */
+    color: #404E67; 
+     background: #F5F7FA;
+    padding: 30px;
+    /* width: auto; */
+    
+}
+.back {
+    float: right;
+    padding-bottom:10px;
+}
+
+
+/* EDIT */
+

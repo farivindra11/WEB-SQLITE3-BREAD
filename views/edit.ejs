@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 30px;
+            color: #404E67;
+            background: #F5F7FA;
+            padding: 30px;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            margin: auto;
+            background: #fff;
+            padding: 50px;
+            box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+
+        .back {
+            float: right;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="table-wrapper">
+            <h1>Edit Data</h1>
+            <form action="" method="post">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="id" value="<%= row.id%>" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">String</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="string" placeholder="String"
+                            value="<%= row.string%>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Integer</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="integer" placeholder="Integer"
+                            value="<%= row.integer%>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Float</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="float" placeholder="Float"
+                            value="<%= row.float%>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Date</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="date" placeholder="end date"
+                            value="<%= row.date %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Boolean</label>
+                    <div class="col-sm-10">
+                        <select name="boolean" class="custom-select mr-sm-2" id="boolean">
+                            <option <%= row.boolean == 'true' ? 'selected' : '' %> value="true">true</option>
+                            <option <%= row.boolean == 'false' ? 'selected' : '' %> value="false">false</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="back">
+                <a href="/" class="btn btn-success">Back</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
